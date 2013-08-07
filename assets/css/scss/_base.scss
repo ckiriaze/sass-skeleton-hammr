@@ -1,0 +1,33 @@
+// Skeleton Dimensions
+$super-width: 1140px;
+$base-width: 960px;
+$tablet-width: 768px;
+$mobile-portrait-width: 300px;
+$mobile-landscape-width: 420px;
+
+$num-columns: 16;
+$margin: 10px;
+
+// fonts
+$body-font: 'Helvetica', 'Helvetica Neue', Helvetica, sans-serif;
+$header-font: 'Helvetica', 'Helvetica Neue', Helvetica, sans-serif;
+
+// Type color
+$light-grey: #696158;
+$dark-grey: #1f1f1f;
+
+// theme color
+$theme-color: #fff; 
+$accent-color: darken($theme-color, 10); // That is, 10% darker than the theme-color.
+
+// other colors
+$primarycolor: rgb(146,154,0);
+$secondarycolor: rgb(164,50,21);
+$tertiarycolor: rgb(41,47,54);
+$neutralcolor: rgb(41,47,54);
+
+
+// Animation Variables
+$duration: .35s; // was .15, upped for hero transition - or change via js
+$delay: .2s;
+$transition: all $duration linear;
