@@ -18,3 +18,5 @@ Includes:
 	Google analytics in footer
 	Body Class variables
 	All variables, layout controls, etc. located in _base.scss
+
+.Hammer template file included, just double click it and it automatically installs!
