@@ -1,10 +1,20 @@
 sass-skeleton-hammr
 ===================
 
-A hammer template based on the skeleton framework
+A hammer template based on a revised version of the skeleton framework, revised animate sass library, a modular SMACSS approach, and much more awesomeness!
 
 Includes:
-	Responsive Nav
 	HTML variables for text - short and long
-	Animate Sass Library
+	Animate.css Sass Library {Revised}
+	Skeleton Framework Sassified {Revised}
+	Sticky footer mixin
+	Browser Icons
+	Vendor scripts: jQuery, modernizr, selectivzr - all cdn's with local fallback
+	Scripts in footer (Preffered method)
+	Responsive Nav - responsive-nav.js
+	Prefixfree for progessive enhancement, your css is now free of prefix clutter
+	Holder.js (alt to placehold.it)
+	main.js file to get you started writing javascript the right way =)
+	Google analytics in footer
+	Body Class variables
 	All variables, layout controls, etc. located in _base.scss

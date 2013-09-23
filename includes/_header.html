@@ -16,24 +16,30 @@
         
         <!-- @reload -->
         
+        <!-- prefixfree -->
         <script src="//cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 
-        <!-- @javascript modernizr-2.6.2.min responsive-nav -->
+        <!-- modernizr cdn with local fallback -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+        <script type='text/javascript'>
+            window.Modernizr || document.write('<script src="assets/js/vendor/modernizr-2.6.2.js"><\/script>')
+        </script>
+
+        <!-- @javascript responsive-nav -->
         <!-- @stylesheet main -->
 
         <!--[if (gte IE 6)&(lte IE 8)]>
-            <!-- @javascript selectivizr-min -->
+            <script src="//cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
             <!-- @stylesheet ie -->
         <![endif]-->
+
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+        <!-- @include _html-variables -->
     </head>
     <body class="<!-- $bodyClass | page -->">
-    
-    <!-- @include _html-variables -->
 
-    <!--[if lt IE 7]>
-        <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-    <![endif]-->
+        <!-- @include responsive-menu -->
 
-    <!-- @include responsive-menu -->
-
-    <header class="banner"></header>
+        <header class="banner"></header>
