@@ -1,0 +1,160 @@
+#nav {
+    
+}
+
+
+
+/* ------------------------------------------
+    RESPONSIVE-NAV.JS STYLES
+--------------------------------------------- */
+.nav-collapse ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: block;
+    list-style: none;
+}
+
+.nav-collapse li {
+    display: inline-block;
+    @include breakpoint(small) {
+        float: left;
+        width: 100%;
+    }
+}
+
+.js .nav-collapse {
+    clip: rect(0 0 0 0);
+    max-height: 0;
+    display: block;
+    overflow: hidden;
+    zoom: 1;
+    position: relative;
+    @include breakpoint(small) {
+        position: absolute;
+    }
+    &.closed {
+        max-height: none;
+        @include breakpoint(small) {
+            max-height: 0;
+        }
+    }
+}
+
+.nav-collapse.opened {
+    max-height: 9999px;
+}
+
+.disable-pointer-events {
+    pointer-events: none !important;
+}
+
+.nav-toggle {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-touch-callout: none;
+    user-select: none;
+    display: none;
+    @include breakpoint(small) {
+        display: block;
+    }
+}
+
+// theming responsive nav
+.fixed {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.nav-collapse,
+.nav-collapse ul {
+    list-style: none;
+    @include breakpoint(small) {
+        width: 100%;
+        float: left;
+    }
+}
+
+.nav-collapse a {
+    text-decoration: none;
+    width: 100%;
+    padding: 0.7em 1em;
+}
+
+@include breakpoint(small) {
+    .nav-collapse a {
+        margin: 0;
+        padding: 1em;
+        float: left;
+        text-align: center;
+        border-bottom: 0;
+    }
+}
+
+.nav-collapse ul ul a {
+    padding-left: 2em;
+}
+
+@include breakpoint(medium) {
+    .nav-collapse ul ul a {
+        display: none;
+    }
+}
+
+
+/* ------------------------------------------
+NAV TOGGLE STYLES
+--------------------------------------------- */
+
+@font-face {
+    font-family: "responsivenav";
+    src:url("../icons/responsivenav.eot");
+    src:url("../icons/responsivenav.eot?#iefix") format("embedded-opentype"),
+    url("../icons/responsivenav.ttf") format("truetype"),
+    url("../icons/responsivenav.woff") format("woff"),
+    url("../icons/responsivenav.svg#responsivenav") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.nav-toggle {
+    position: fixed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-touch-callout: none;
+    user-select: none;
+    text-decoration: none;
+    text-indent: -999px;
+    position: relative;
+    overflow: hidden;
+    width: 70px;
+    float: right;
+
+    height: 100px;
+}
+
+.nav-toggle:before {
+    color: #222; /* Edit this to change the icon color */
+    font-family: "responsivenav", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    font-size: 28px;
+    text-transform: none;
+    position: absolute;
+    content: "≡";
+    text-indent: 0;
+    text-align: center;
+    speak: none;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+    line-height: 100px;
+}
+
+.nav-toggle.active::before {
+    font-size: 24px;
+    content:"x";
+}

@@ -1,0 +1,66 @@
+html,
+body {
+
+}
+
+body{
+    
+}
+
+// main container
+main[role="main"]{
+    
+}
+
+/* -- Use this wrapper if you want to block-out a column with padding 
+Taken from http://csswizardry.com/2011/10/the-island-object/) -- */
+.island {
+    padding: 2em;
+    // margin-bottom: 2em;
+    &:last-child {
+        margin-bottom: 0; 
+    }
+}
+
+[data-layout="grid"],
+[class=#{$container-class}] {
+
+	&.wide{
+		max-width: $super-width;
+	}
+
+    .primary{
+        @include columns(1);
+    }
+
+    #sidebar {
+
+        @include third(1);
+
+        @include breakpoint(small) { 
+            width: 100%;
+        }
+    }
+    
+    article[role="article"] {
+
+        &.post{
+
+        }
+
+        &:first-of-type{
+
+        }
+    }
+
+}
+
+//  if body has class has-sidebar, set primary container to 2/3 width
+.has-sidebar{
+    .primary{
+        @include third(2);
+        @include breakpoint(small) { 
+            width: 100%;
+        }
+    }
+}
