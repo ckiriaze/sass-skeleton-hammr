@@ -20,5 +20,3 @@ Includes:
 	All variables, layout controls, etc. located in _base.scss
 
 .Hammer template file included, just double click it and it automatically installs!
-
-can either use hammer, then stick to optimized mode to source correct js/css files, or use guard.
