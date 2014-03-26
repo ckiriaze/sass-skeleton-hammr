@@ -1,2 +1,0 @@
-Author: Constantine Kiriaze
-Version: 1.0
