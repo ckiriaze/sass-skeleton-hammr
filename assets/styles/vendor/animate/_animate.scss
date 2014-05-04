@@ -73,201 +73,209 @@ $visibility: visible;
 // @import "animations/wiggle";
 // @import "animations/wobble";
 
-// %bounce {
+.animated {
+	animation-duration: $duration;
+	animation-fill-mode: $fill;
+	&.infinite {
+		animation-iteration-count: infinite;
+	}
+}
+
+// .bounce {
 // 	@include bounce($duration, $delay, $function, $fill, $visibility);
 // }
-// %bounceIn {
+// .bounceIn {
 // 	@include bounceIn($duration, $delay, $function, $fill, $visibility);
 // }
-// %bounceInDown {
+// .bounceInDown {
 // 	@include bounceInDown($duration, $delay, $function, $fill, $visibility);
 // }
-// %bounceInLeft {
+// .bounceInLeft {
 // 	@include bounceInLeft($duration, $delay, $function, $fill, $visibility);
 // }
-// %bounceInRight {
+// .bounceInRight {
 // 	@include bounceInRight($duration, $delay, $function, $fill, $visibility);
 // }
-// %bounceInUp {
+// .bounceInUp {
 // 	@include bounceInUp($duration, $delay, $function, $fill, $visibility);
 // }
-// %bounceOut {
+// .bounceOut {
 // 	@include bounceOut($duration, $delay, $function, $fill, $visibility);
 // }
-// %bounceOutDown {
+// .bounceOutDown {
 // 	@include bounceOutDown($duration, $delay, $function, $fill, $visibility);
 // }
-// %bounceOutLeft {
+// .bounceOutLeft {
 // 	@include bounceOutLeft($duration, $delay, $function, $fill, $visibility);
 // }
-// %bounceOutRight {
+// .bounceOutRight {
 // 	@include bounceOutRight($duration, $delay, $function, $fill, $visibility);
 // }
-// %bounceOutUp {
+// .bounceOutUp {
 // 	@include bounceOutUp($duration, $delay, $function, $fill, $visibility);
 // }
-// %fadeIn {
+// .fadeIn {
 // 	@include fadeIn($duration, $delay, $function, $fill, $visibility);
 // }
-// %fadeInDown {
+// .fadeInDown {
 // 	@include fadeInDown($duration, $delay, $function, $fill, $visibility);
 // }
-// %fadeInDownBig {
+// .fadeInDownBig {
 // 	@include fadeInDownBig($duration, $delay, $function, $fill, $visibility);
 // }
-// %fadeInLeft {
+// .fadeInLeft {
 // 	@include fadeInLeft($duration, $delay, $function, $fill, $visibility);
 // }
-// %fadeInLeftBig {
+// .fadeInLeftBig {
 // 	@include fadeInLeftBig($duration, $delay, $function, $fill, $visibility);
 // }
-// %fadeInRight {
+// .fadeInRight {
 // 	@include fadeInRight($duration, $delay, $function, $fill, $visibility);
 // }
-// %fadeInRightBig {
+// .fadeInRightBig {
 // 	@include fadeInRightBig($duration, $delay, $function, $fill, $visibility);
 // }
-// %fadeInUp {
+// .fadeInUp {
 // 	@include fadeInUp($duration, $delay, $function, $fill, $visibility);
 // }
-// %fadeInUpBig {
+// .fadeInUpBig {
 // 	@include fadeInUpBig($duration, $delay, $function, $fill, $visibility);
 // }
-// %fadeOut {
+// .fadeOut {
 // 	@include fadeOut($duration, $delay, $function, $fill, $visibility);
 // }
-// %fadeOutDown {
+// .fadeOutDown {
 // 	@include fadeOutDown($duration, $delay, $function, $fill, $visibility);
 // }
-// %fadeOutDownBig {
+// .fadeOutDownBig {
 // 	@include fadeOutDownBig($duration, $delay, $function, $fill, $visibility);
 // }
-// %fadeOutLeft {
+// .fadeOutLeft {
 // 	@include fadeOutLeft($duration, $delay, $function, $fill, $visibility);
 // }
-// %fadeOutLeftBig {
+// .fadeOutLeftBig {
 // 	@include fadeOutLeftBig($duration, $delay, $function, $fill, $visibility);
 // }
-// %fadeOutRight {
+// .fadeOutRight {
 // 	@include fadeOutRight($duration, $delay, $function, $fill, $visibility);
 // }
-// %fadeOutRightBig {
+// .fadeOutRightBig {
 // 	@include fadeOutRightBig($duration, $delay, $function, $fill, $visibility);
 // }
-// %fadeOutUp {
+// .fadeOutUp {
 // 	@include fadeOutUp($duration, $delay, $function, $fill, $visibility);
 // }
-// %fadeOutUpBig {
+// .fadeOutUpBig {
 // 	@include fadeOutUpBig($duration, $delay, $function, $fill, $visibility);
 // }
-// %fadeInScale {
+// .fadeInScale {
 // 	@include fadeInScale($duration, $delay, $function, $fill, $visibility);
 // }
-// %fadeInScaleBig {
+// .fadeInScaleBig {
 // 	@include fadeInScaleBig($duration, $delay, $function, $fill, $visibility);
 // }
-// %fadeOutScale {
+// .fadeOutScale {
 // 	@include fadeOutScale($duration, $delay, $function, $fill, $visibility);
 // }
-// %fadeOutScaleBig {
+// .fadeOutScaleBig {
 // 	@include fadeOutScaleBig($duration, $delay, $function, $fill, $visibility);
 // }
-// %flash {
+// .flash {
 // 	@include flash($duration, $delay, $function, $fill, $visibility);
 // }
-// %flip {
+// .flip {
 // 	@include flip($duration, $delay, $function, $fill, $visibility);
 // }
-// %flipInX {
+// .flipInX {
 // 	@include flipInX($duration, $delay, $function, $fill, $visibility);
 // }
-// %flipInY {
+// .flipInY {
 // 	@include flipInY($duration, $delay, $function, $fill, $visibility);
 // }
-// %flipOutX {
+// .flipOutX {
 // 	@include flipOutX($duration, $delay, $function, $fill, $visibility);
 // }
-// %flipOutY {
+// .flipOutY {
 // 	@include flipOutY($duration, $delay, $function, $fill, $visibility);
 // }
-// %hinge {
+// .hinge {
 // 	@include hinge($duration, $delay, $function, $fill, $visibility);
 // }
-// %lightSpeedIn {
+// .lightSpeedIn {
 // 	@include lightSpeedIn($duration, $delay, $fill, $visibility);
 // }
-// %lightSpeedOut {
+// .lightSpeedOut {
 // 	@include lightSpeedOut($duration, $delay, $fill, $visibility);
 // }
-// %pulse {
+// .pulse {
 // 	@include pulse($duration, $delay, $function, $fill, $visibility);
 // }
-// %rollIn {
+// .rollIn {
 // 	@include rollIn($duration, $delay, $function, $fill, $visibility);
 // }
-// %rollOut {
+// .rollOut {
 // 	@include rollOut($duration, $delay, $function, $fill, $visibility);
 // }
-// %rotateIn {
+// .rotateIn {
 // 	@include rotateIn($duration, $delay, $function, $fill, $visibility);
 // }
-// %rotateInDownLeft {
+// .rotateInDownLeft {
 // 	@include rotateInDownLeft($duration, $delay, $function, $fill, $visibility);
 // }
-// %rotateInDownRight {
+// .rotateInDownRight {
 // 	@include rotateInDownRight($duration, $delay, $function, $fill, $visibility);
 // }
-// %rotateInUpLeft {
+// .rotateInUpLeft {
 // 	@include rotateInUpLeft($duration, $delay, $function, $fill, $visibility);
 // }
-// %rotateInUpRight {
+// .rotateInUpRight {
 // 	@include rotateInUpRight($duration, $delay, $function, $fill, $visibility);
 // }
-// %rotateOut {
+// .rotateOut {
 // 	@include rotateOut($duration, $delay, $function, $fill, $visibility);
 // }
-// %rotateOutDownLeft {
+// .rotateOutDownLeft {
 // 	@include rotateOutDownLeft($duration, $delay, $function, $fill, $visibility);
 // }
-// %rotateOutDownRight {
+// .rotateOutDownRight {
 // 	@include rotateOutDownRight($duration, $delay, $function, $fill, $visibility);
 // }
-// %rotateOutUpLeft {
+// .rotateOutUpLeft {
 // 	@include rotateOutUpLeft($duration, $delay, $function, $fill, $visibility);
 // }
-// %rotateOutUpRight {
+// .rotateOutUpRight {
 // 	@include rotateOutUpRight($duration, $delay, $function, $fill, $visibility);
 // }
-// %shake {
+// .shake {
 // 	@include shake($duration, $delay, $function, $fill, $visibility);
 // }
-// %slideInDown {
+// .slideInDown {
 // 	@include slideInDown($duration, $delay, $function, $fill, $visibility);
 // }
-// %slideInLeft {
+// .slideInLeft {
 // 	@include slideInLeft($duration, $delay, $function, $fill, $visibility);
 // }
-// %slideInRight {
+// .slideInRight {
 // 	@include slideInRight($duration, $delay, $function, $fill, $visibility);
 // }
-// %slideOutLeft {
+// .slideOutLeft {
 // 	@include slideOutLeft($duration, $delay, $function, $fill, $visibility);
 // }
-// %slideOutRight {
+// .slideOutRight {
 // 	@include slideOutRight($duration, $delay, $function, $fill, $visibility);
 // }
-// %slideOutUp {
+// .slideOutUp {
 // 	@include slideOutUp($duration, $delay, $function, $fill, $visibility);
 // }
-// %swing {
+// .swing {
 // 	@include swing($duration, $delay, $function, $fill, $visibility);
 // }
-// %tada {
+// .tada {
 // 	@include tada($duration, $delay, $function, $fill, $visibility);
 // }
-// %wiggle {
+// .wiggle {
 // 	@include wiggle($duration, $delay, $function, $fill, $visibility);
 // }
-// %wobble {
+// .wobble {
 // 	@include wobble($duration, $delay, $function, $fill, $visibility);
 // }

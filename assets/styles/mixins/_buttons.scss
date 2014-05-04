@@ -4,25 +4,25 @@
     @extend %ib;
     background: $color;
     color: white;
-    padding: .5em 1.5em; // relative to button font size
-    @include font-size(16, 1.5);
+    padding: 0 1.5em; // relative to button font size
+    @include font-size($paragraph-font-size);
     @include border-radius(2px);
-    
+    margin-bottom: .5em;
+    box-sizing: content-box; // to work with borders
+
     // override <button>'s
     border: none;
+    user-select: none;
+    appearance: none;
     cursor: pointer;
-    
+    text-align: center;
+    white-space: nowrap;
+
+    transition: $transition;
+
     &:hover{
         background: darken($color, 10);
         color: white;
-    }
-    &.inverted{
-        color: invert(white);
-        background: $light-grey;
-        &:hover{
-            background: $dark-grey;
-            color: white;
-        }
     }
 }
 

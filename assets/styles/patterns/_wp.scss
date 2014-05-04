@@ -1,0 +1,89 @@
+/*=====================================================
+
+Wordpress Required Styles
+
+======================================================*/
+.aligncenter,
+a img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.alignleft,
+a img.alignleft {
+    @include breakpoint(desktop) {
+        float:left;
+    }
+}
+
+.alignright,
+a img.alignright {
+    margin: 0 0 20px;
+    @include breakpoint(desktop) {
+        float: right;
+        margin: 5px 0 20px 20px;
+    }
+}
+
+.alignnone,
+.alignleft,
+a img.alignnone,
+a img.alignleft {
+    margin: 0 0 20px;
+    @include breakpoint(desktop) {
+        margin: 5px 20px 20px 0;
+    }
+}
+
+.wp-caption {
+    padding: 5px 5px 10px;
+    text-align:center !important;
+    background-color: #f3f3f3;
+    margin: 10px;
+    border: 1px solid #ddd;
+}
+.wp-caption.alignnone {
+    margin:5px 20px 20px 0;
+}
+.wp-caption.alignleft {
+    margin:5px 20px 20px 0;
+}
+.wp-caption.alignright {
+    margin:5px 0 20px 20px;
+}
+    .wp-caption img {
+        border:0 none;
+        height:auto;
+        margin:0;
+        max-width: 100%;
+        padding:0;
+        width:auto;
+    }
+
+.wp-caption .wp-caption-text,
+.gallery-caption {
+    font-size: 1rem;
+    margin:0;
+    padding: 10px 0 0;
+}
+
+.wp-caption-dd {
+    font-size: 11px;
+    line-height: 17px;
+    padding: 0 4px 5px;
+    margin: 0;
+}
+
+.sticky {
+    background: #f7f7f7;
+    padding: 0 10px 10px;
+}
+    .sticky h2 {
+        padding-top: 10px;
+    }
+
+.bypostauthor {
+
+}

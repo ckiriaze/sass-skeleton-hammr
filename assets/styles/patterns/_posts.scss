@@ -1,28 +1,10 @@
 article.post {
-    .blog & {
-        width: 100%;
-        text-align: left;
-        color: initial;
-    }
-    position: relative;
-    padding: 45px;
-    .single &,
-    .page & {
-        padding: 0;
-    }
+    
     @include clearfix();
-    .blog &:hover {
-        background: #f5f5f5;
-    }
-    &:first-of-type {
-        header {
-            h3 {
-                padding-top: 0;
-            }
-        }
-    }
-    .post-content { // wraps everything but figure
+    .post-content {
+        p {
 
+        }
     }
     header {
         display: block;
@@ -47,23 +29,27 @@ article.post {
             }
         }
         .post-meta {
-            padding-bottom: 2%;
+            padding: 0% 0 4%;
         }
     }
     figure {
-        float: left;
-        margin-right: 2em;
-        @include breakpoint(small) {
-            float: none;
+        &.post-thumbnail {
+            @include breakpoint(desktop) {
+                img {
+                    float: left;
+                    margin-right: 2rem;
+                    width: 40%;
+                }
+            }
         }
     }
     .post-excerpt {
         padding: 0 0 20px 0;
-        font-style: italic;
-        font-size: 1.2em;
+        @include font-size(20);
+        font-weight: 400;
         .read-more {
             font-size: .9rem;
-            font-weight: 700;
+            font-weight: 600;
             text-transform: uppercase;
             text-decoration: none;
         }
@@ -78,7 +64,7 @@ article.post {
         .meta-label {
             @extend %ib;
             margin-right: 2%;
-            font-size: 1rem;
+            @include font-size(16);
             color: #222;
             font-weight: 800;
             text-transform: uppercase;
@@ -210,55 +196,6 @@ article.post {
         header, footer, .social-share {
             // display: none;
         }
-    }
-
-    
-    .grid & {
-        @extend %ib;
-        width: 48%;
-        position: relative;
-        margin-bottom: 4%;
-        padding: 0;
-        overflow: hidden;
-        figure {
-            float: none;
-            margin: 0;
-            img {
-                width: 100%;
-            }
-            & + .post-content { // if figure exists
-                position: absolute;
-                color: white;
-                a {
-                    color: white;
-                }
-            }
-        }
-        .post-content {
-            bottom: 0;
-            padding: 5%;
-            width: 100%;
-            header {
-                margin: 0;
-                h6 {
-                    display: block;
-                }
-                h3 {
-                    text-transform: uppercase;
-                    padding-bottom: 0;
-                }
-            }
-            .post-meta {
-                display: none;
-            }
-            .post-excerpt {
-                padding: 0;
-            }
-        }
-        footer {
-            display: none;
-        }
-
     }
 
     iframe {

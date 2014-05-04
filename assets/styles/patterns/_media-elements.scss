@@ -12,3 +12,22 @@
 .mejs-overlay:hover .mejs-overlay-button {
     opacity: 1;
 }
+
+.mejs-controls .mejs-playpause-button button,
+.mejs-controls .mejs-button button {
+	margin: 0;
+	height: 100%;
+	vertical-align: middle;
+	display: inline-block;
+	position: relative;
+}
+
+.mejs-controls .mejs-volume-button .mejs-volume-slider {
+	left: -8px;
+}
+
+.mejs-controls .mejs-time-rail .mejs-time-loaded,
+.mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-current,
+.mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-current {
+	background-color: $theme-color;
+}

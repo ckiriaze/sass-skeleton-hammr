@@ -6,16 +6,18 @@
 
 /*  Font Size (px, em, rem)
 ============================================ */
-@mixin font-size($size, $line: 1.5) {
-    
+@mixin font-size($size, $rem: true) {
+
     $px: $size * 1px;
-    $em: em($size, strip-unit($base-font-size));
-    $rem: ($size/16) * 1rem;
+    $em: em( $size, strip-unit($rem-base) );
+    $rem-unit: ( $size / strip-unit($rem-base) ) * 1rem;
 
     font-size: $px;
-    font-size: $em; // Probably not needed
-    font-size: $rem;
+    font-size: $em;
 
-    line-height: $line * 1em;
+    @if $rem {
+    	font-size: $rem-unit;
+    }
+
 }
 // @include font-size(68, {OPTIONAL});

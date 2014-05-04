@@ -1,160 +1,227 @@
 #nav {
-    
-}
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 800;
 
+    display: none;
 
-
-/* ------------------------------------------
-    RESPONSIVE-NAV.JS STYLES
---------------------------------------------- */
-.nav-collapse ul {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    display: block;
-    list-style: none;
-}
-
-.nav-collapse li {
-    display: inline-block;
-    @include breakpoint(small) {
-        float: left;
-        width: 100%;
-    }
-}
-
-.js .nav-collapse {
-    clip: rect(0 0 0 0);
-    max-height: 0;
-    display: block;
-    overflow: hidden;
-    zoom: 1;
-    position: relative;
-    @include breakpoint(small) {
-        position: absolute;
-    }
-    &.closed {
-        max-height: none;
-        @include breakpoint(small) {
-            max-height: 0;
+    @include breakpoint(desktop) {
+        display: block;
+        text-align: right;
+        #trigger-overlay {
+            display: none;
         }
     }
-}
 
-.nav-collapse.opened {
-    max-height: 9999px;
-}
-
-.disable-pointer-events {
-    pointer-events: none !important;
-}
-
-.nav-toggle {
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    -webkit-touch-callout: none;
-    user-select: none;
-    display: none;
-    @include breakpoint(small) {
-        display: block;
-    }
-}
-
-// theming responsive nav
-.fixed {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-}
-
-.nav-collapse,
-.nav-collapse ul {
-    list-style: none;
-    @include breakpoint(small) {
-        width: 100%;
-        float: left;
-    }
-}
-
-.nav-collapse a {
-    text-decoration: none;
-    width: 100%;
-    padding: 0.7em 1em;
-}
-
-@include breakpoint(small) {
-    .nav-collapse a {
-        margin: 0;
-        padding: 1em;
-        float: left;
-        text-align: center;
-        border-bottom: 0;
-    }
-}
-
-.nav-collapse ul ul a {
-    padding-left: 2em;
-}
-
-@include breakpoint(medium) {
-    .nav-collapse ul ul a {
+    ul.main-menu {
+        text-align: right;
+        line-height: 100px;
+        transition: $transition;
+        .slideDown & {
+            line-height: 80px;
+            height: 80px;
+        }
         display: none;
+        @include breakpoint(desktop) {
+            display: inline-block;
+        }
+        li {
+            @include font-size(14);
+            margin: 0;
+            vertical-align: middle;
+            &:last-child{
+                margin: 0;
+            }
+            a {
+                &.active{
+                    color: $theme-color; // set by themeoptions .sc class
+                }
+                &[data-nav-trigger="open"] {
+                    text-indent: 2px;
+                    padding-top: 4px;
+                    font-size: 1rem;
+                    color: white;
+                    > .icon:before {
+                        font-size: 1rem;
+                        vertical-align: top;
+                        line-height: 1.38rem;
+                    }
+                }
+            }
+        }
+
+        // dropdown
+        &.main-menu {
+            z-index: 202;
+            zoom: 1;
+            margin: 0;
+
+            .sub-menu {
+                text-align: center;
+                border: 1px solid #efefef;
+                position: absolute;
+                visibility: hidden;
+                margin: 0;
+                padding: 5px 0;
+                background-color: #ffffff;
+                opacity: 0;
+                top: 0;
+                transition: opacity .35s cubic-bezier(.2,.4,.1,1), margin .35s cubic-bezier(.2,.4,.1,1);
+
+                li {
+                    display: block;
+                    float: none;
+                    margin: 0;
+
+                    a {
+                        display: block;
+                        padding: 10px 20px;
+                        min-height: 25px;
+                        float: none;
+                        color: #A4A4A4;
+                    }
+
+                    &.current-menu-item > a,
+                    &.active > a,
+                    &:hover > a {
+                        color: #444;
+                        background-color: #eee;
+                    }
+
+                    &:hover > a {
+                        background-color: #fafafa;
+                    }
+
+                    > a {
+                        color: #6C6C6C;
+                        &:hover {
+                            color: #444;
+                        }
+                    }
+
+                }
+
+                .sub-menu {
+                    left: 100%;
+                    top: -1px;
+                    z-index: 9999;
+                    margin: 0;
+                    border-left: 0;
+                }
+
+            }
+
+            li {
+                position: relative;
+                z-index: 203;
+                list-style: none;
+                &:hover {
+                    > .sub-menu {
+                        visibility: visible;
+                        opacity: 1;
+                        height: auto;
+                    }
+                }
+            }
+
+            a {
+                z-index: 204;
+            }
+
+            > li {
+
+                > a {
+                    display: block;
+                    padding: 0;
+                    &:not(.active) {
+                        color: #ccc;
+                    }
+                    text-align: center;
+                    font: bold 14px/20px $header-font, Helvetica, sans-serif;
+                    font-weight: 800;
+                    text-transform: uppercase;
+                    margin: 0;
+                    display: block;
+                    padding: 10px;
+                    text-align: center;
+                    &:hover {
+                        opacity: 1;
+                    }
+                    &:after,
+                    &:before {
+                        background-color: #d9d9d9;
+                        position: absolute;
+                        content: '';
+                    }
+                }
+
+                > .sub-menu {
+                    margin-top: 20px;
+                    top: 40px;
+                    padding: .5em 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    max-width: 180px;
+                    @extend %no-flick;
+
+                    &:before,
+                    &:after {
+                        border-style: solid;
+                        border-width: 0 8px 8px 8px;
+                        content: "";
+                        left: 50%;
+                        margin-left: -8px;
+                        position: absolute;
+                    }
+                    &:before {
+                        border-color: transparent transparent #efefef transparent;
+                        top: -9px;
+                    }
+
+                    &:after {
+                        border-color: transparent transparent #ffffff transparent;
+                        top: -8px;
+                    }
+                }
+
+                &.dropdown {
+                    > a {
+                        &:before {
+                            width: 5px;
+                            height: 1px;
+                            right: 3px;
+                            top: 30px;
+                        }
+                        &:after {
+                            width: 1px;
+                            height: 5px;
+                            right: 5px;
+                            top: 28px;
+                        }
+                    }
+                }
+
+                &.current-menu-item > a,
+                &.active > a,
+                &:hover > a,
+                & > a:hover {
+                    color: $theme-color;
+                }
+
+                &:hover {
+                    > .sub-menu {
+                        margin-top: 0;
+                    }
+                }
+            }
+
+            &:after {
+                clear: both;
+            }
+
+        }
+
     }
-}
 
-
-/* ------------------------------------------
-NAV TOGGLE STYLES
---------------------------------------------- */
-
-@font-face {
-    font-family: "responsivenav";
-    src:url("../icons/responsivenav.eot");
-    src:url("../icons/responsivenav.eot?#iefix") format("embedded-opentype"),
-    url("../icons/responsivenav.ttf") format("truetype"),
-    url("../icons/responsivenav.woff") format("woff"),
-    url("../icons/responsivenav.svg#responsivenav") format("svg");
-    font-weight: normal;
-    font-style: normal;
-}
-
-.nav-toggle {
-    position: fixed;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-touch-callout: none;
-    user-select: none;
-    text-decoration: none;
-    text-indent: -999px;
-    position: relative;
-    overflow: hidden;
-    width: 70px;
-    float: right;
-
-    height: 100px;
-}
-
-.nav-toggle:before {
-    color: #222; /* Edit this to change the icon color */
-    font-family: "responsivenav", sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    font-size: 28px;
-    text-transform: none;
-    position: absolute;
-    content: "≡";
-    text-indent: 0;
-    text-align: center;
-    speak: none;
-    width: 100%;
-    top: 0;
-    left: 0;
-
-    line-height: 100px;
-}
-
-.nav-toggle.active::before {
-    font-size: 24px;
-    content:"x";
 }

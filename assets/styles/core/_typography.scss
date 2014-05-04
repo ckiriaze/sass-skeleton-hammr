@@ -53,8 +53,8 @@ img {
 	interpolation-mode: bicubic;
 }
 
-/* 
-* Flexible Media 
+/*
+* Flexible Media
 */
 img, video, canvas, object, embed  {
 	max-width: 100%;
@@ -75,7 +75,8 @@ figure.aspect {
 	position: relative;
 	overflow: hidden;
 	iframe,
-	video {
+	video,
+	embed {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -103,7 +104,9 @@ textarea {
 
 pre{
 	font-family: Monaco;
-	color: #444;
+	background-color: $dark-grey;
+	color: white;
+	overflow: scroll;
 	padding: 5px 10px;
 	border-radius: 2px;
 	tab-size: 2; /* Set tab size to 2 spaces */
@@ -124,7 +127,7 @@ pre{
 	right: -30px;
 	background: white;
 	padding: 3px 5px;
-	color: #444;
+	color: $dark-grey;
 	border-radius: 2px;
 	text-transform: none;
 }
@@ -137,7 +140,6 @@ body {
 html {
 	font-family: sans-serif;
     text-size-adjust: 100%;
-    text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
 }
 
@@ -145,7 +147,7 @@ body {
 	line-height: 1;
 	font-family: $body-font;
 	color: $dark-grey;
-	-webkit-font-smooth: always; 
+	-webkit-font-smooth: always;
 	-webkit-font-smoothing: antialiased;
 	text-shadow: 0 1px 0 rgba(0,0,0,0.01);
 	background: #fff;
@@ -153,12 +155,7 @@ body {
 	overflow-scrolling: touch;
 	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 
-	@include breakpoint(medium) { 
-		text-size-adjust: none;
-	}
-	@include breakpoint(small) {
-
-	}
+	text-size-adjust: none;
 }
 
 
@@ -168,75 +165,99 @@ body {
 Heading styles
 
 ======================================================*/
-h1, h2, h3, h4, h5, h6 { 
-	font-family: $header-font;
-	font-style: normal;
-	font-weight: normal;
-	font-stretch: normal;
+@for $i from 1 through 6 {
 
-	@include breakpoint(medium) { 
+	h#{$i} {
+
+		font-family: $header-font;
+		font-style: normal;
+		font-weight: normal;
+		font-stretch: normal;
+
 		word-wrap: break-word;
-	}
+		word-break: break-word;
 
-	padding: .5em 0;
+		line-height: $header-line-height;
+		margin-top: $header-top-margin;
+		margin-bottom: $header-bottom-margin;
 
-	&.paddless{
-		padding: 0;
+		&.no-margin {
+			margin: 0;
+		}
+
+		small {
+			line-height: 0;
+		}
+
 	}
 
 }
 
-h1 { 
-	@include font-size(68, $header-line-height);
+h1 {
+	@include font-size($h1-font-size - 4);
 	&.xlarge {
-		@include font-size(110);
+		@include font-size( ( $h1-font-size - 4 ) * 2.5 ); // 110px
 	}
 	&.xxlarge {
-		@include font-size(126);
+		@include font-size( ( $h1-font-size - 4 ) * 2.85 ); // 126px
 	}
 	&.absurd {
-		@include font-size(177);
+		@include font-size( ( $h1-font-size - 4 ) * 4 ); // 176px
 	}
-	@include breakpoint(medium) {
-		@include font-size(42, $header-line-height);
+	@include breakpoint(tablet) {
+		@include font-size($h1-font-size - 2);
+		&.xlarge {
+			@include font-size( ( $h1-font-size - 2 ) * 2.5 ); // 110px
+		}
+		&.xxlarge {
+			@include font-size( ( $h1-font-size - 2 ) * 2.85 ); // 126px
+		}
+		&.absurd {
+			@include font-size( ( $h1-font-size - 2 ) * 4 ); // 176px
+		}
 	}
-	@include breakpoint(small) {
-		@include font-size(34, $header-line-height);
+	@include breakpoint(desktop) {
+		@include font-size($h1-font-size);
+		&.xlarge {
+			@include font-size( ( $h1-font-size ) * 2.5 ); // 110px
+		}
+		&.xxlarge {
+			@include font-size( ( $h1-font-size ) * 2.85 ); // 126px
+		}
+		&.absurd {
+			@include font-size( ( $h1-font-size ) * 4 ); // 176px
+		}
 	}
 }
 
 h2 {
-	@include font-size(42, $header-line-height);
-	@include breakpoint(medium) {
-		@include font-size(36, $header-line-height);
-	}
-	@include breakpoint(small) {
-		@include font-size(30, $header-line-height);
+	@include font-size($h2-font-size - 4);
+	@include breakpoint(tablet) {
+		@include font-size($h2-font-size);
 	}
 }
 
-h3 { 
-	@include font-size(30, $header-line-height);
-	@include breakpoint(small) {
-		@include font-size(26, $header-line-height);
+h3 {
+	@include font-size($h3-font-size - 2);
+	@include breakpoint(desktop) {
+		@include font-size($h3-font-size);
 	}
 }
 
 h4 {
-	@include font-size(26, $header-line-height);
-	@include breakpoint(small) {
-		@include font-size(22, $header-line-height);
+	@include font-size($h4-font-size - 2);
+	@include breakpoint(desktop) {
+		@include font-size($h4-font-size);
 	}
 }
 
-h5 { 
-	@include font-size(18, $header-line-height);
+h5 {
+	@include font-size($h5-font-size);
 }
 
-h6 { 
-	@include font-size(16, $header-line-height);
+h6 {
+	@include font-size($h6-font-size);
 }
-
 
 
 
@@ -246,13 +267,19 @@ Paragraph styles
 
 ======================================================*/
 p {
-	@include font-size(16,1.5);
 	font-family: $body-font;
-	font-weight: 400;
-	margin-bottom: .5em;
+	@include font-size($paragraph-font-size);
+	line-height: $paragraph-line-height;
+	margin-bottom: $paragraph-bottom-margin;
+	@include breakpoint(desktop) {
+		@include font-size($paragraph-font-size + 2);
+	}
 	&.lead {
-		@include font-size(20);
-		padding-bottom: 30px;
+		@include font-size($paragraph-lead-font-size);
+		margin-bottom: $paragraph-lead-bottom-margin;
+		@include breakpoint(desktop) {
+			@include font-size($paragraph-lead-font-size + 2);
+		}
 	}
 }
 
@@ -267,15 +294,16 @@ a {
 	}
 }
 
-small, .small:not(a) { 
-	@include font-size(10);
+small,
+.small:not(a) {
+	@include font-size($small-font-size);
 }
 
-strong { 
+strong {
 	font-weight: bold;
 }
 
-em { 
+em {
 	font-style: italic;
 }
 
@@ -296,20 +324,21 @@ nav li{
 Lists
 
 ======================================================*/
-ul, 
+ul,
 ol {
 	font-size: initial;
 	li {
-		margin-bottom: 2%;
+		line-height: $list-line-height;
+		margin-bottom: $list-bottom-margin;
 	}
 }
 
 ul {
 	list-style: none outside;
-	&.square, 
-	&.circle, 
+	&.square,
+	&.circle,
 	&.disc {
-		
+
 	}
 	&.square {
 		list-style: square outside;
@@ -327,8 +356,8 @@ ul {
 
 ol {
 	list-style: decimal;
-	li{
-		margin-left: 5%;
+	li {
+		margin-left: $list-disc-left-margin;
 	}
 	ol {
 
@@ -342,14 +371,13 @@ dl dt {
 blockquote,
 q {
 	font-family: $body-font;
-	color: #444;
 	letter-spacing: 2px;
 	font-weight: 400;
 	border-left: 3px solid;
 	padding: 2%;
 	margin: 2%;
 	p{
-		@include font-size(21, 1.3);
+		@include font-size($blockquotes-font-size, 1.3);
 	}
 	cite{
 		font-size: initial;

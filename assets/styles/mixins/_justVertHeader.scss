@@ -27,7 +27,7 @@
 		height: 100%;
 	}
 	@if( $stacked == true ) {	
-		@include breakpoint(small) {
+		@include breakpoint(phone) {
 	        #{$brandClass},
 	        #{$brandClass} > *,
 	        nav {
